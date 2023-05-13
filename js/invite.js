@@ -53,7 +53,7 @@ Invite = {
             var portadaParallax = './img/portada-mobile.jpg';
             var instagramParallax = './img/instagram_mobile.jpg';
         } else {
-            var portadaParallax = './img/portada-3.jpg';
+            var portadaParallax = './img/portada-desktop02.jpg';
             var instagramParallax = './img/instagram_mobile.jpg';
         }
         
