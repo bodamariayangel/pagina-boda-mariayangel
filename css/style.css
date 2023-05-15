@@ -1183,6 +1183,7 @@
   #modalAsistencia .formulario-ninios {
     opacity: 0;
     height: 0;
+    display: none;
     transition: all .5s ease;
   }
 
@@ -1192,6 +1193,7 @@
   #modalAsistencia .formulario-ninios.show {
     opacity: 1;
     height: 100%;
+    display: block;
   }
 
   #modalAsistencia input, #modalAsistencia textarea{
@@ -1233,6 +1235,7 @@
     border: none;
     display: inline-block;
     padding: 0;
+    z-index: 1;
   }
   
   /* #formAsistencia .form-group .form-check{ */
