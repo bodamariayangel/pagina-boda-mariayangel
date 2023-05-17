@@ -1033,14 +1033,14 @@
   #contact-whatsapp{
     position: fixed;
     z-index: 1500;
-    top: 10px;
-    right: 0;
+    bottom: 3px;
+    right: 3px;
   }
   
   #contact-whatsapp a{
     display: block;
-    width: 100px;
-    height: 100px;
+    width: 60px;
+    height: 60px;
     cursor: pointer;
     background-color: #81948b6b;
     border-radius: 50%;

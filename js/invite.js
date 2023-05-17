@@ -28,80 +28,77 @@ Invite = {
         });
 
         $('#sendAsistencia').on('click', function(e) {
-            var $form = $('form#formAsistencia'), url = 'https://script.google.com/macros/s/AKfycbxKch4owUNw3Bv1yS5bGajVG3cQztADXSYrfCQxBBVqi3QPNxBXcEsCdxNYiW6wPb27/exec';
             e.preventDefault();
-            var jqxhr = $.ajax({
-                url: url,
-                method: "GET",
-                dataType: "json",
-                data: $form.serializeObject(),
-                async: false,
-                success: function(data) {
-                    console.log(data);
-                    $('form#formAsistencia').hide();
-                    $('.formulario-content').append("<p class='subtitle'>Gracias</p>");
-                },
-                error: function(){
-                    console.log("error");
-                },
-            });
+            // if (Invite.isOkAsistencia()) {
+            //     // Load and disabled buttom.
+            //     $("#sendAsistencia").text("Enviando...");
+            //     $("#sendAsistencia").prop("disabled", true);
+                
+            //     // Envio form
+            //     Invite.sendAsistencia();
+            // }
+            Invite.sendAsistencia();
         });
     },
-    
-    // $('body').on('click', '#sendAsistencia', function(e) {
-        //   e.preventDefault();
-        //   if (isOkAsistencia()) //Form bien validado
-        //   {
-        //     // Load and disabled buttom.
-        //     $("#sendAsistencia").text(lang_informandoAsistencia + "...");
-        //     $("#sendAsistencia").prop("disabled", true);
-        //     // Obtengo el Form.
-        //     var formulario = $("#formAsistencia")[0];
-        //     // Obtengo los datos del formulario
-        //     var datos = new FormData(formulario);
-        //     // Visualizar como viajan los datos
-        //     // for (var pair of datos.entries()) {
-        //     //   console.log(pair[0] + ", " + pair[1]);
-        //     // }
-        //     // Envio con fetch los datos mediante POST
-        //     fetch(_pathApp + "producto/fetchs/confirmar-asistencia.php", {
-        //         method: "POST",
-        //         body: datos
-        //       })
-        //       // Promesas fetch
-        //       .then(res => res.json())
-        //       .then(data => {
-        //         // Si recibo error 
-        //         if (data.error === true) {
-        //           $("#sendAsistencia").text(lang_confirmarAsistencia);
-        //           $("#sendAsistencia").prop("disabled", false);
-        //           // Imprimo el error
-        //           $('#formAsistencia').after('<span id="error-form">' + data.desc + '</span>');
-        //         }
-        //         // Si no hay error 
-        //         if (data.error === false) {
-        //           $("#sendAsistencia").text(lang_confirmarAsistencia);
-        //           $("#sendAsistencia").prop("disabled", false);
-        //           // Oculto elementos del form y reseteo
-        //           $('#formAsistencia')[0].reset();
-        //           $('#modalAsistencia .formulario-content, #modalAsistencia .modal-footer, #modalAsistencia h5').hide();
-        //           // Acomodo el css para centrar mensaje
-        //           $('#modalAsistencia .modal-body').addClass('fix-height');
-        //           // Muestro mensaje de exito
-        //           $('#modalAsistencia .msj-content').html(
-        //             "<h5>" + lang_asistenciaMsjExito_1 + "</h5><p>" + lang_asistenciaMsjExito_2 + "</p>"
-        //           ).show();
-        //           // Cierro modal y vuelvo a activar form
-        //           setTimeout(function() {
-        //             $('#modalAsistencia').modal('hide');
-        //             $('#modalAsistencia .formulario-content, #modalAsistencia .modal-footer, #modalAsistencia h5').show();
-        //             $('#modalAsistencia .msj-content').html('').hide();
-        //             $('#modalAsistencia .modal-body').removeClass('fix-height');
-        //           }, 4000);
-        //         }
-        //       });
-        //   }
-        // });
+
+    //Envio de formulario
+    sendAsistencia: function() {
+        var $form = $('form#formAsistencia'), url = 'https://script.google.com/macros/s/AKfycbxKch4owUNw3Bv1yS5bGajVG3cQztADXSYrfCQxBBVqi3QPNxBXcEsCdxNYiW6wPb27/exec';
+        var jqxhr = $.ajax({
+            url: url,
+            method: "GET",
+            dataType: "json",
+            data: $form.serializeObject(),
+            async: false,
+        });
+
+        $form.hide();
+        $('#sendAsistencia').hide();
+        $('.formulario-content').append("<h5>'Informaci&oacute;n enviada'</h5><p class='subtitle'>Gracias por confirmar la asistencia</p>");
+        setTimeout(function() {
+            $('#modalAsistencia').modal('hide');
+        }, 40000);
+    },
+
+    // Validacion de form.
+    isOkAsistencia: function() {
+
+        // Remuevo mensajes de error anteriores
+        $("#error-form").remove();
+  
+        // Variables necesarias para la validacion
+        var flag = true;
+        var err = '';
+  
+        // Variables del form para validar.
+        var asistenteName = $.trim($("#nombreAsistente").val());
+        var asistenteTlf = $.trim($("#telefonoAsistente").val());
+        var asistenteComentarios = $.trim($("#comentariosAsistente").val());
+  
+        // Nombre
+        if (asistenteName == '') {
+          flag = false;
+          err = lang_nombreRequerido;
+        } else {
+          if (asistenteName.length > 20) {
+            flag = false;
+            err = lang_caracteresNombreAsistencia;
+          }
+        }
+  
+        // Comentarios
+        if (asistenteComentarios != '') {
+          if (asistenteComentarios.length > 100) {
+            flag = false;
+            err = lang_caracteresComentariosAsistencia;
+          }
+        }
+  
+        if (flag === false) {
+          $('#formAsistencia').after('<span id="error-form">' + err + '</span>');
+        }
+        return flag;
+    },
 
     parallax: function(){
         if (device == 'mobile' || $(window).width() < 768) {
@@ -119,10 +116,24 @@ Invite = {
         $('.instagram').parallax({
             imageSrc: instagramParallax
         });
-    }
+    },
+
+    videoHeight: function() {
+        var video = $('footer iframe');
+        if (video.length > 0) {
+            var width = video.width();
+            var height = width*9/16;
+            video.attr('height', height + 'px');
+        }
+    },
    
 }
 $(document).ready(function (){
     Invite.events();
     Invite.parallax();
+    Invite.videoHeight();
 });
+
+$(window).resize(function(){
+	Invite.videoHeight();
+})
