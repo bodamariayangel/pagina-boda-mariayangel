@@ -54,12 +54,11 @@ Invite = {
             async: false,
         });
 
-        $form.hide();
-        $('#sendAsistencia').hide();
-        $('.formulario-content').append("<h5>Informaci&oacute;n enviada</h5><p class='subtitle'>Gracias por confirmar la asistencia</p>");
         setTimeout(function() {
-            $('#modalAsistencia').modal('hide');
-        }, 40000);
+            $form.hide();
+            $('#sendAsistencia').hide();
+            $('.formulario-content').append("<h5 class='modal-title'>Informaci&oacute;n enviada</h5><p class='subtitle'>Gracias</p>");
+        }, 2000);
     },
 
     // Validacion de form.
