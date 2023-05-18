@@ -1212,6 +1212,19 @@
   input[type="radio"] {
     left: -9999px;
   }
+  input:-webkit-autofill, input:autofill,
+  textarea:-webkit-autofill, textarea:autofill {
+    filter: none;
+    box-shadow: 0 0 0px 20px rgb(255,255,255) inset;
+  }
+
+  input.err, textarea.err {
+    border-color: red !important;
+  }
+
+  input.err + label:before {
+    border-color: red;
+  }
   
   #modalAsistencia .modal-content{
     text-align: center;

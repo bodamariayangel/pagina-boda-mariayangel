@@ -26,18 +26,20 @@ Invite = {
                 $(".ninios").addClass('line-bottom');
             }
         });
+        $(document).on("change", "#formAsistencia .err", function (){
+            Invite.isOkAsistencia();
+        });
 
         $('#sendAsistencia').on('click', function(e) {
             e.preventDefault();
-            // if (Invite.isOkAsistencia()) {
-            //     // Load and disabled buttom.
-            //     $("#sendAsistencia").text("Enviando...");
-            //     $("#sendAsistencia").prop("disabled", true);
+            if (Invite.isOkAsistencia()) {
+                // Load and disabled buttom.
+                $("#sendAsistencia").text("Enviando...");
+                $("#sendAsistencia").prop("disabled", true);
                 
-            //     // Envio form
-            //     Invite.sendAsistencia();
-            // }
-            Invite.sendAsistencia();
+                // Envio form
+                Invite.sendAsistencia();
+            }
         });
     },
 
@@ -54,7 +56,7 @@ Invite = {
 
         $form.hide();
         $('#sendAsistencia').hide();
-        $('.formulario-content').append("<h5>'Informaci&oacute;n enviada'</h5><p class='subtitle'>Gracias por confirmar la asistencia</p>");
+        $('.formulario-content').append("<h5>Informaci&oacute;n enviada</h5><p class='subtitle'>Gracias por confirmar la asistencia</p>");
         setTimeout(function() {
             $('#modalAsistencia').modal('hide');
         }, 40000);
@@ -65,33 +67,64 @@ Invite = {
 
         // Remuevo mensajes de error anteriores
         $("#error-form").remove();
+        $('.err').removeClass('err');
   
         // Variables necesarias para la validacion
         var flag = true;
         var err = '';
   
         // Variables del form para validar.
-        var asistenteName = $.trim($("#nombreAsistente").val());
-        var asistenteTlf = $.trim($("#telefonoAsistente").val());
-        var asistenteComentarios = $.trim($("#comentariosAsistente").val());
+        var attend = $('input[name="asistencia"]:checked').val();
+        var name = $.trim($("#nombreAsistente").val());
+        var phone = $.trim($("#telefonoAsistente").val());
+        var email = $.trim($("#correoAsistente").val());
+        var partner = $('input[name="acompanante"]:checked').val();
+        var partnerName = $.trim($("#acompanantesNombre").val());
+        var child = $('input[name="ninios"]:checked').val();
+        var childName = $.trim($("#niniosNombre").val());
   
         // Nombre
-        if (asistenteName == '') {
-          flag = false;
-          err = lang_nombreRequerido;
-        } else {
-          if (asistenteName.length > 20) {
+        if (name == '') {
             flag = false;
-            err = lang_caracteresNombreAsistencia;
-          }
+            $("#nombreAsistente").addClass('err');
+            err = err + "Indica un nombre<br>";
         }
-  
-        // Comentarios
-        if (asistenteComentarios != '') {
-          if (asistenteComentarios.length > 100) {
+        //Telefono
+        if(phone == '' || !/^[+]*[(]{0,1}[0-9]{1,3}[)]{0,1}[-\s\./0-9]*$/g.test(phone)) {
             flag = false;
-            err = lang_caracteresComentariosAsistencia;
-          }
+            $("#telefonoAsistente").addClass('err');
+            err = err + "Indica un n&uacute;mero de tel&eacute;fono v&aacute;lido<br>";
+        }
+        //Email
+        if(email == '' || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) ) {
+            flag = false;
+            $("#correoAsistente").addClass('err');
+            err = err + "Indica un correo electr&oacute;nico v&aacute;lido<br>";
+        }
+        //Si asiste
+        if(attend == 'Si') {
+            if(partner) {
+                if(partner == 'Si' && partnerName == ''){
+                    flag = false;
+                    $("#acompanantesNombre").addClass('err');
+                    err = err + "Indica el nombre completo de los acompañantes<br>";
+                }
+            } else {
+                flag = false;
+                $("input[name='acompanante']").addClass('err');
+                err = err + "Indica si vendr&aacute;s acompañado<br>";
+            }
+            if(child) {
+                if(child == 'Si' && childName == '') {
+                    flag = false;
+                    $("#niniosNombre").addClass('err');
+                    err = err + "Indica el o los nombres de los niños<br>";
+                }
+            } else {
+                flag = false;
+                $("input[name='ninios']").addClass('err');
+                err = err + "Indica si vendr&aacute;s con niños<br>";
+            }
         }
   
         if (flag === false) {
