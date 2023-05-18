@@ -45,7 +45,8 @@ Invite = {
 
     //Envio de formulario
     sendAsistencia: function() {
-        var $form = $('form#formAsistencia'), url = 'https://script.google.com/macros/s/AKfycbxKch4owUNw3Bv1yS5bGajVG3cQztADXSYrfCQxBBVqi3QPNxBXcEsCdxNYiW6wPb27/exec';
+        var $form = $('form#formAsistencia'), 
+        url = 'https://script.google.com/macros/s/AKfycbwUdF1iueblxS9UxdErPw8Bhzi4aHjX_JFB0RCFbabIuRfsBlyMkmwmR6w65Pv5W67f/exec';
         var jqxhr = $.ajax({
             url: url,
             method: "GET",
@@ -128,6 +129,18 @@ Invite = {
   
         if (flag === false) {
           $('#formAsistencia').after('<span id="error-form">' + err + '</span>');
+        } else {
+            var date = new Date()
+            const options = {
+                year: 'numeric', 
+                month: 'numeric', 
+                day: 'numeric',
+                hour: 'numeric', 
+                minute: 'numeric', 
+                second: 'numeric', 
+            };
+            date = new Intl.DateTimeFormat('es-Es', options).format(date);
+            $('#datetime').val(date);
         }
         return flag;
     },
