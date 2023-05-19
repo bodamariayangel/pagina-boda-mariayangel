@@ -153,11 +153,6 @@
   }
 
   section.asistencia{
-    padding-top: 90px;
-    padding-bottom: 25%;
-  }
-
-  section.fiesta{
     padding-bottom: 35%;
     padding-top:35%;
     background-position-y: 50px;
@@ -193,11 +188,6 @@
     width: 22%;
   }
 
-  section.asistencia .regalos-flor-der {
-    bottom: 16%;
-    width: 26%;
-  }
-
   section.ceremonia-fiesta .info-col .info-box a.boton{
     min-width: 80%;
   }
@@ -208,12 +198,12 @@
     bottom: 38%;
   }
 
-  section.fiesta .fiesta-flor-izq{
+  section.asistencia .fiesta-flor-izq{
     max-width: 25%;
     bottom: -30%;
   }
 
-  section.fiesta:after{
+  section.asistencia:after{
     bottom: -35px;
   }
 
@@ -229,7 +219,7 @@
     bottom: 0;
   }
 
-  section.fiesta .item-fiesta a.boton{
+  section.asistencia .item-fiesta a.boton{
     min-width:100%
   }
 
@@ -238,7 +228,7 @@
     height: 50px;
   }
 
-  section.fiesta .item-fiesta .hojas-musica{
+  section.asistencia .item-fiesta .hojas-musica{
     position: absolute;
     top: -75px;
     left: -40px;

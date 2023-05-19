@@ -749,7 +749,7 @@
   
   /* Fiesta */
   
-  section.fiesta{
+  section.asistencia{
     background: url('../img/img_ondas03.svg') center top no-repeat var(--color-5);
     padding-top: 14%;
     position: relative;
@@ -757,70 +757,57 @@
   }
   
   
-  section.fiesta .fiesta-flor-izq{
+  section.asistencia .fiesta-flor-izq{
     position: absolute;
     top:20%;
     left: 0;
     max-width:12%;
   }
   
-  section.fiesta .container{
+  section.asistencia .container{
     z-index: 999;
     position: relative;
   }
   
   
-  section.fiesta .anim-musica{
+  section.asistencia .anim-musica{
     width: 75px;
     margin: 15px auto 40px auto;
   }
   
-  section.fiesta .anim-vestuario{
+  section.asistencia .anim-vestuario{
     width: 95px;
   }
   
-  section.fiesta .anim-tips{
+  section.asistencia .anim-tips{
     width: 55px;
   }
   
-  /* section.fiesta:after{
-    background-image: url('../img/img_ondas04.svg');
-    position: absolute;
-    content: '';
-    background-size: contain !important;
-    background-repeat: no-repeat;
-    background-position: bottom center;
-    height: 100%;
-    width: 100%;
-    bottom: -85px;
-    z-index: 99;
-  } */
-  
-  section.fiesta .item-fiesta{
+  section.asistencia .item-fiesta{
     margin-top: 60px;
     padding:0 40px;
   }
   
   
-  section.fiesta .item-fiesta h3{
+  section.asistencia .item-fiesta h3{
     color: var(--color-7);
     font-family: var(--fuente-2);
     font-weight: 700; 
   }
   
-  section.fiesta .item-fiesta p{
+  section.asistencia .item-fiesta p{
     color: var(--color-2);
     margin-bottom: 0;
     font-family: var(--fuente-2);
     font-weight: 400;
   }
   
-  section.fiesta .item-fiesta a.boton{
+  section.asistencia .item-fiesta a.boton{
     width:85%
   }
   
   
-  section.fiesta .item-fiesta .content-item-fiesta{
+  section.asistencia .item-fiesta .content-item-fiesta{
     background-color: var(--color-4);
     padding:40px 25px;
     -webkit-border-radius: 20px;
@@ -829,12 +816,12 @@
     min-height: 400px;
   }
   
-  section.fiesta .content-anim-fiesta{
+  section.asistencia .content-anim-fiesta{
     height:80px;
   }
   
   
-  section.fiesta .item-fiesta .hojas-musica{
+  section.asistencia .item-fiesta .hojas-musica{
     position: absolute;
     top: -170px;
     left: -75px;
@@ -842,36 +829,8 @@
     width: 160px;
   }
   
-  
   /* ---------- */
-  
-  
-  
-  /* Regalos */
-  
-  
-  section.asistencia{
-    background: url('../img/img_texturaFondo.jpg') left top repeat var(--color-4);
-    padding-top: 14%;
-    position: relative;
-    padding-bottom: 10%
-  }
-  
-  section.asistencia .anim-regalos{
-    width: 70px;
-    margin: 1px auto 40px;
-  }
-  
-  
-  section.asistencia .regalos-flor-der{
-    position: absolute;
-    bottom:20%;
-    right: 0;
-    width: 15%;
-  }
-  
-  /* ---------- */
-  
+
   
   /* Instagram */
   

@@ -55,24 +55,6 @@
             </div>
         </div>
     <!-- END PRELOADER AREA -->
-    
-    <!-- Modal musica fondo -->
-        <div id="modalMusica" class="modal fade" tabindex="-1">
-            <div class="modal-dialog modal-lg modal-dialog-centered">
-                <div class="modal-content">
-                    <div class="modal-body text-center">
-                        <p>
-                          Mar&iacute;a y &Aacute;ngel        
-                        </p>
-                        <span>La música de fondo es parte de la experiencia</span>
-                        <br>
-                        <a class="boton" id="play-music-modal" href="">Ingresar con música</a>
-                        <a class="boton" data-dismiss="modal" aria-label="Close" id="" href="">Ingresar sin música</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    
     <!-- Portada -->
     <section class="portada">
         <div class="portada-flor-izq-sup">
@@ -96,11 +78,11 @@
 
                     <div class="box-frase-portada">
                         <p>
-                            <img src="https://fixdate.io/modelo-invitacion/30/img/comilla-apertura.svg" alt=""> <br>
+                            <img src="./img/comilla-apertura.svg" alt=""> <br>
 
                             El amor crece <br> cuando se comparte <br>
 
-                            <img src="https://fixdate.io/modelo-invitacion/30/img/comilla-cierre.svg" alt="">
+                            <img src="./img/comilla-cierre.svg" alt="">
                         </p>
                     </div>
                     <div class="d-flex justify-content-center align-items-center">
@@ -300,18 +282,16 @@
         </div>
     </section>
 
-    <!-- Fiesta-->
-    <section class="fiesta">
+    <!-- Asistencia -->
+    <section class="asistencia">
         <div class="container">
             <div class="row text-center d-flex justify-content-center align-items-center">
                 <div class="col-md-12">
                     <h2 class="title">Asistencia</h2>
                     <p class="subtitle">Hagamos juntos un d&iacute;a inolvidable</p>
                 </div>
-            
-                <!-- Notas -->
                 <div class="col-md-6 item-fiesta">
-                    <img class="hojas-musica" src="https://fixdate.io/modelo-invitacion/30/img/img_hojasFiesta.svg" alt="">
+                    <img class="hojas-musica" src="./img/img_hojasFiesta.svg" alt="">
                     <div class="w-100 content-item-fiesta d-flex flex-column justify-content-between align-items-center">
                         <h3>Confirmaci&oacute;n</h3>
                         <div class=" d-flex justify-content-center align-items-center content-anim-fiesta">
@@ -535,36 +515,18 @@
   <!-- Scripts -->
   <!-- Varaibles para JS desde config -->
     <script>
-      var _pathApp = "https://fixdate.io/";
-
       var _pathProducto = "./";
-
-      var tokenProducto = "";
 
       // Idioma
       var langJs = "es"
 
-
-
       // Idioma js en MODELO e INVITACION
-          var langJsVariante = "es-ES";
-      
+      var langJsVariante = "es-ES";
 
-      
+      // Cuenta regresiva
+      var fechaCuentaRegresiva = "05/08/2023 17:00:00";
 
-      
-
-        // Cuenta regresiva
-        var fechaCuentaRegresiva = "05/08/2023 17:00:00";
-
-        // Mapas
-        var latitudFiesta = 41.3971891;
-        var longitudFiesta = -2.174728;
-        var latitudCeremonia = 41.3971891;
-        var longitudCeremonia = -2.174728;
-
-
-      </script>
+    </script>
 
 
 <!-- Idioma por defecto js -->
@@ -1001,7 +963,7 @@
     <!-- Cuenta regresiva -->
     <script>
         // Set the date we're counting down to
-        var countDownDate = new Date(2023, 08, 05, 18, 30).getTime();
+        var countDownDate = new Date(2023, 07, 05, 18, 30).getTime();
 
         // Update the count down every 1 second
         var x = setInterval(function() {
