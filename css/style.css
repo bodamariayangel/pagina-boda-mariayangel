@@ -1821,6 +1821,14 @@
   /* ---------- */
   
   
+  .addeventatc_dropdown {
+    background-color: var(--color-3);
+    padding: 6px 0;
+  }
+  
+  .addeventatc_dropdown .copyx {
+    display: none;
+  }
   
   
   #googleMap {
