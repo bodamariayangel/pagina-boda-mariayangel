@@ -209,6 +209,9 @@
 
   section.instagram:before{
     top: -2px;
+    background-color: rgba(78,59,35,0.25);
+    background-color: rgb(74 99 96 / 25%);
+    background-color: rgb(129 148 139 / 25%);
   }
 
   section.instagram .hashtag{

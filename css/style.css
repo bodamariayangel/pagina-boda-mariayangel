@@ -856,7 +856,6 @@
     height: 100%;
     width: 100%;
     top: -1px;
-    z-index: 999;
   }
   
   section.instagram .title{
@@ -1689,7 +1688,9 @@
   /* ---------- */
   /* Filtro imagen parallax */
   section.instagram, section.portada::before {
-    background-color: rgba(180,164,143,0.3);
+    background-color: rgba(78,59,35,0.25);
+    background-color: rgb(74 99 96 / 25%);
+    background-color: rgb(129 148 139 / 25%);
   }
   
   /* Modal Como llegar */

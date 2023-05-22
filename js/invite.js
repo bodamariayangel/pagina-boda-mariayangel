@@ -147,11 +147,11 @@ Invite = {
 
     parallax: function(){
         if (device == 'mobile' || $(window).width() < 768) {
-            var portadaParallax = './img/portada-mobile.jpg';
-            var instagramParallax = './img/instagram_mobile.jpg';
+            var portadaParallax = './img/portada-mobile.jpeg';
+            var instagramParallax = './img/instagram_mobile01.jpeg';
         } else {
-            var portadaParallax = './img/portada-desktop02.jpg';
-            var instagramParallax = './img/instagram_mobile.jpg';
+            var portadaParallax = './img/portada-desktop.jpeg';
+            var instagramParallax = './img/instagram_desktop01.jpeg';
         }
         
         $('.portada').parallax({
